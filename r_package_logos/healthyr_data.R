@@ -20,7 +20,7 @@ p <- data_tbl %>%
 
 sticker(
     p,
-    package = "{healthyR_data}",
+    package = "{healthyR.data}",
     filename = "C:/Users/Steve/Documents/GitHub/r-package-logos/r_package_logos/healthyr_data/test1.png",
     p_size = 11,
     s_x = 1,
