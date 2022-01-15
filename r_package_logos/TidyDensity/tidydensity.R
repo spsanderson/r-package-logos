@@ -6,8 +6,8 @@ library(broom)
 font_add_google("Major Mono Display")
 
 alpha <- c(.2,.4,.6,.8, 1)
-beta <- 0
-#beta <- rev(alpha)
+#beta <- 0
+beta <- rev(alpha)
 
 df_tbl <- tibble(
     dist    = "Beta",
@@ -17,7 +17,7 @@ df_tbl <- tibble(
 ) %>%
     group_by(dist_type) %>%
     mutate(
-        density(rcauchy(500000, alpha, beta)) %>%
+        density(rnorm(500000, alpha, beta)) %>%
             tidy() %>%
             nest(data = c(x, y))
     ) %>%
@@ -34,7 +34,7 @@ ggplot(aes(x = x, y = y, group = dist_type, color = dist_type)) +
 sticker(
     p,
     package = "{TidyDensity}",
-    filename = "C:/Users/Steve/Documents/GitHub/r-package-logos/r_package_logos/TidyDensity/test3.png",
+    filename = "C:/Users/Steve/Documents/GitHub/r-package-logos/r_package_logos/TidyDensity/test4.png",
     p_size = 11,
     s_x = 1,
     s_y = .8,
