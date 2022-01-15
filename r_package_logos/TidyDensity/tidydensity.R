@@ -5,8 +5,8 @@ library(broom)
 
 font_add_google("Major Mono Display")
 
-alpha <- c(.2,.4,.6,.8, 1)
-#beta <- 0
+alpha <- c(1,1.5,2,2.5)
+beta <- 1
 beta <- rev(alpha)
 
 df_tbl <- tibble(
