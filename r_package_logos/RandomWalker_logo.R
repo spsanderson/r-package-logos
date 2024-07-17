@@ -34,9 +34,9 @@ generate_random_walk <- function(n_steps = 100) {
 random_walk_df <- generate_random_walk(n_steps = 100)
 
 # Plot the random walk
-p <- ggplot(random_walk_df, aes(x = X, y = Y)) +
+p1 <- ggplot(random_walk_df, aes(x = X, y = Y)) +
     geom_path(color = "blue", alpha = 0.7) +
-    geom_point(color = "red", size = 1) +
+    #geom_point(color = "red", size = 0.1) +
     theme_void() +
     labs(
         title = "",
@@ -78,7 +78,7 @@ random_walk <- function(steps = 1000, step_size = 1) {
 walk_data <- random_walk(steps = 100, step_size = 0.25)
 
 # Plot the random walk
-p <- ggplot(walk_data, aes(x = x, y = y)) +
+p2 <- ggplot(walk_data, aes(x = x, y = y)) +
     geom_path() +
     labs(x = "", y = "") +
     theme_void()  +
@@ -119,9 +119,9 @@ random_walk <- data.frame(
 )
 
 # Create the plot
-p <- ggplot(random_walk, aes(x = x, y = y)) +
+p3 <- ggplot(random_walk, aes(x = x, y = y)) +
     geom_path(aes(color = step), linewidth = 0.5) +
-    geom_point(data = random_walk[c(1, n), ], aes(color = step), size = 3) +
+    #geom_point(data = random_walk[c(1, n), ], aes(color = step), size = 0.1) +
     scale_color_viridis_c(option = "plasma") +
     labs(x = "",
          y = "") +
@@ -135,6 +135,26 @@ p <- ggplot(random_walk, aes(x = x, y = y)) +
 
 sticker(
     p,
+    package = "{RandomWalker}",
+    filename = "C:/Users/steve/Documents/GitHub/r-package-logos/r_package_logos/RandomWalker/logo.png",
+    p_size = 13,
+    s_x = 1,
+    s_y = .8,
+    s_width = 1,
+    s_height = 1,
+    p_family = "Major Mono Display",
+    h_fill = "white",
+    h_color = "steel blue",
+    h_size = 1,
+    p_color = "steel blue"
+)
+
+library(patchwork)
+
+ppp <- p1 + p2 + p3 + plot_layout(ncol = 3)
+
+sticker(
+    ppp,
     package = "{RandomWalker}",
     filename = "C:/Users/steve/Documents/GitHub/r-package-logos/r_package_logos/RandomWalker/logo.png",
     p_size = 13,
