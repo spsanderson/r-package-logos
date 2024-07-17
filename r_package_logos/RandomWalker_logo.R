@@ -75,13 +75,17 @@ random_walk <- function(steps = 1000, step_size = 1) {
 }
 
 # Generate random walk data
-walk_data <- random_walk(steps = 100, step_size = 0.25)
+walk_data <- random_walk(steps = 100, step_size = 0.5)
 
 # Plot the random walk
-p2 <- ggplot(walk_data, aes(x = x, y = y)) +
-    geom_path() +
-    labs(x = "", y = "") +
-    theme_void()  +
+p <- ggplot(walk_data, aes(x = x, y = y)) +
+    geom_path(linewidth = 0.5, color = "steelblue", alpha = .618) +
+    geom_point(data = walk_data[c(1, max(walk_data[["step"]])), ], size = 0.5) +
+    labs(title = "",
+         x = "",
+         y = "") +
+    theme_void() +
+    theme(legend.position = "none") +
     theme(axis.text.x=element_blank(), #remove x axis labels
           axis.ticks.x=element_blank(), #remove x axis ticks
           axis.text.y=element_blank(),  #remove y axis labels
