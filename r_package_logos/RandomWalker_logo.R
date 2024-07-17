@@ -79,7 +79,7 @@ walk_data <- random_walk(steps = 100, step_size = 0.5)
 
 # Plot the random walk
 p <- ggplot(walk_data, aes(x = x, y = y)) +
-    geom_path(linewidth = 0.5, color = "steelblue", alpha = .618) +
+    geom_path(linewidth = 0.25, color = "steelblue", alpha = .618) +
     geom_point(data = walk_data[c(1, max(walk_data[["step"]])), ], size = 0.5) +
     labs(title = "",
          x = "",
